@@ -12,7 +12,7 @@ function now () {
   hour = zeroFill(date.getHours())
   minutes = zeroFill(date.getMinutes())
   result = year + "-" + month + "-" + day + " "
-  result += hour + "-" + minutes
+  result += hour + ":" + minutes
   return result
 }
 
