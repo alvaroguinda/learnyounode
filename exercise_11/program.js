@@ -3,11 +3,7 @@ var fs = require('fs')
 
 var server = http.createServer(function (req, resp) {
   // request handling logic
-  src = fs.createReadStream()
-  fs.readFile(process.argv[3], function (err, lines) {
-    lines.forEach(function (line) {
-      src.pipe(line)
-    })
-  })
+  resp.writeHead(200, { 'content-type': 'text/plain' })
+  fs.createReadStream(process.argv[3]).pipe(resp)
 })
 server.listen(Number(process.argv[2]))
